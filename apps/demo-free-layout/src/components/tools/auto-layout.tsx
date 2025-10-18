@@ -17,6 +17,12 @@ export const AutoLayout = () => {
     await tools.autoLayout({
       enableAnimation: true,
       animationDuration: 1000,
+      layoutConfig: {
+        rankdir: 'LR',
+        align: undefined,
+        nodesep: 100,
+        ranksep: 100,
+      },
     });
   }, [tools]);
 

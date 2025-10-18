@@ -17,6 +17,7 @@ export type AutoLayoutToolOptions = LayoutOptions;
 
 /**
  * Auto layout tool - 自动布局工具
+ * https://flowgram.ai/guide/plugin/free-auto-layout-plugin.html
  */
 @injectable()
 export class WorkflowAutoLayoutTool {

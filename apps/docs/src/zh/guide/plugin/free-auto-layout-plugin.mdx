@@ -208,9 +208,9 @@ const layoutOptions: LayoutOptions = {
 await tools.autoLayout(layoutOptions);
 ```
 
-### 嵌套容器布局
+### 仅对指定容器布局
 
-插件支持嵌套容器的递归布局，会自动处理容器内部的节点排列：
+插件支持对指定容器进行递归布局，会自动处理容器内部的节点排列：
 
 ```typescript
 // 对特定容器执行布局
@@ -278,7 +278,7 @@ const handleAutoLayout = async () => {
 
 ### Q: 布局动画卡顿怎么优化？
 
-A: 对于复杂图形，建议禁用动画或减少动画时长：
+A: 对于复杂工作流，建议禁用动画或减少动画时长：
 
 ```typescript
 layoutOptions: {

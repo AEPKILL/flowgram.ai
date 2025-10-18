@@ -15,7 +15,9 @@ export default defineConfig({
   root: path.join(__dirname, 'src'),
   base: '/',
   title: 'FlowGram.AI',
+  description: 'FlowGram.AI',
   globalStyles: path.join(__dirname, './global.less'),
+  head: ['<meta name="keywords" content="FlowGram, flowgram">'],
   builderConfig: {
     performance: {
       buildCache: false,

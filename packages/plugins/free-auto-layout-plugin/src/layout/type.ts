@@ -102,6 +102,7 @@ export interface LayoutParams {
 }
 
 export interface LayoutOptions {
+  layoutConfig?: Partial<LayoutConfig>;
   containerNode?: WorkflowNodeEntity;
   getFollowNode?: GetFollowNode;
   enableAnimation?: boolean;

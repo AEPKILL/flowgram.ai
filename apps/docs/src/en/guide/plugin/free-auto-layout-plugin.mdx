@@ -207,9 +207,9 @@ const layoutOptions: LayoutOptions = {
 await tools.autoLayout(layoutOptions);
 ```
 
-### Nested Container Layout
+### Layout Only for the Specified Container
 
-The plugin supports recursive layout for nested containers and automatically handles node arrangement within containers:
+The plugin supports recursive layout for a specified container and automatically handles node arrangement within the container:
 
 ```typescript
 // Execute layout for specific container
@@ -278,7 +278,7 @@ const handleAutoLayout = async () => {
 
 ### Q: How to optimize layout animation stuttering?
 
-A: For complex graphics, it's recommended to disable animation or reduce animation duration:
+A: For complex workflows, it's recommended to disable animation or reduce animation duration:
 
 ```typescript
 layoutOptions: {

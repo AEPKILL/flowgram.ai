@@ -65,7 +65,11 @@ export class AutoLayoutService {
     const childrenLayouts = (
       await Promise.all(layoutNodes.map((n) => this.layoutNode(n, options)))
     ).flat();
-    const layout = new Layout(this.layoutConfig);
+    const layoutConfig: LayoutConfig = {
+      ...this.layoutConfig,
+      ...options.layoutConfig,
+    };
+    const layout = new Layout(layoutConfig);
     layout.init({ container, layoutNodes, layoutEdges }, options);
     layout.layout();
     const rect = this.getLayoutNodeRect(container);
