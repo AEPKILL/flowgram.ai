@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: MIT
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
+import { debounce } from 'lodash-es';
 import {
   Mention,
   MentionOpenChangeEvent,
@@ -69,6 +70,11 @@ export function VariableTree({
 
   const treeData = useVariableTree({});
 
+  const debounceUpdatePosKey = useCallback(
+    debounce(() => setPosKey(String(Math.random())), 100),
+    []
+  );
+
   return (
     <>
       <Mention triggerCharacters={triggerCharacters} onOpenChange={handleOpenChange} />
@@ -82,8 +88,9 @@ export function VariableTree({
           <div style={{ width: 300, maxHeight: 300, overflowY: 'auto' }}>
             <Tree
               treeData={treeData}
-              onExpand={(v) => {
-                setPosKey(String(Math.random()));
+              onExpand={() => {
+                // When Expand, an animation is triggered, so we need to update the position by debounce
+                debounceUpdatePosKey();
               }}
               onSelect={(v) => {
                 insert(v);
@@ -96,7 +103,10 @@ export function VariableTree({
         <PositionMirror
           position={position}
           // When Doc scroll, update position
-          onChange={() => setPosKey(String(Math.random()))}
+          onChange={() => {
+            // Update immediately to avoid the popover position lagging behind the cursor
+            setPosKey(String(Math.random()));
+          }}
         />
       </Popover>
     </>

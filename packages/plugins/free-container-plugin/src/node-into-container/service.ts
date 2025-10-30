@@ -298,7 +298,12 @@ export class NodeIntoContainerService {
   }): boolean {
     const { dragNode, dropNode } = params;
     const isDropContainer = dropNode?.getNodeMeta<WorkflowNodeMeta>().isContainer;
-    if (!dropNode || !isDropContainer || this.isParent(dragNode, dropNode)) {
+    if (
+      !dropNode ||
+      !isDropContainer ||
+      this.isParent(dragNode, dropNode) ||
+      this.isParent(dropNode, dragNode)
+    ) {
       return false;
     }
     if (
