@@ -1,8 +1,8 @@
-# Flowgram.ai
+# FlowGram.AI
 
-- [ ] 了解 Flowgram.ai 的背景和目标
+- [ ] 了解 FlowGram.AI 的背景和目标
 
-- [ ] 了解 Flowgram.ai 的架构和设计理念
+- [ ] 了解 FlowGram.AI 的架构和设计理念
 
   - [ ] 梳理整体架构，并绘制架构图
   - [ ] 梳理各个模块的职责，并绘制模块职责图
