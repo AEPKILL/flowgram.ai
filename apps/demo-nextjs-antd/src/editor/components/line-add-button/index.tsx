@@ -3,10 +3,13 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { IconPlusCircle } from './button';
-import './index.scss';
-import { useVisible } from './use-visible';
+import { useCallback } from 'react';
 
+import {
+  WorkflowNodePanelService,
+  WorkflowNodePanelUtils,
+} from '@flowgram.ai/free-node-panel-plugin';
+import { LineRenderProps } from '@flowgram.ai/free-lines-plugin';
 import {
   HistoryService,
   WorkflowDocument,
@@ -17,14 +20,11 @@ import {
   delay,
   useService,
 } from '@flowgram.ai/free-layout-editor';
-import { LineRenderProps } from '@flowgram.ai/free-lines-plugin';
-import {
-  WorkflowNodePanelService,
-  WorkflowNodePanelUtils,
-} from '@flowgram.ai/free-node-panel-plugin';
 
-import { useCallback } from 'react';
+import { useVisible } from './use-visible';
+import { IconPlusCircle } from './button';
 
+import './index.scss';
 export const LineAddButton = (props: LineRenderProps) => {
   const { line, selected, hovered, color } = props;
   const visible = useVisible({ line, selected, hovered });

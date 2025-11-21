@@ -4,7 +4,11 @@
  */
 
 import { FormMeta, FormRenderProps, ValidateTrigger } from '@flowgram.ai/free-layout-editor';
-import { autoRenameRefEffect, syncVariableTitle, provideJsonSchemaOutputs } from '@flowgram.ai/form-antd-materials';
+import {
+  autoRenameRefEffect,
+  syncVariableTitle,
+  provideJsonSchemaOutputs,
+} from '@flowgram.ai/form-antd-materials';
 
 import { FormContent, FormHeader, FormInputs, FormOutputs } from '@editor/form-components';
 import { FlowNodeJSON } from '../typings';
@@ -36,7 +40,7 @@ export const defaultFormMeta: FormMeta<FlowNodeJSON> = {
       return undefined;
     },
   },
-   effect: {
+  effect: {
     title: syncVariableTitle,
     outputs: provideJsonSchemaOutputs,
     inputsValues: autoRenameRefEffect,

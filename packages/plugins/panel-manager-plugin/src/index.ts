@@ -12,6 +12,7 @@ export { PanelManager, type PanelManagerConfig } from './services';
 /** react hooks */
 export { usePanelManager } from './hooks/use-panel-manager';
 
+export { DockedPanelLayer, type DockedPanelLayerProps } from './components/panel-layer';
 export { ResizeBar } from './components/resize-bar';
 
 /** types */

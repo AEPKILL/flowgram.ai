@@ -8,12 +8,14 @@ import { useEffect, useRef, startTransition, useState, useCallback } from 'react
 import { Area } from '../../types';
 import { usePanelManager } from '../../hooks/use-panel-manager';
 import { floatPanelWrap } from './css';
-import { ResizeBar } from '../resize-bar';
 
 export const FloatPanel: React.FC<{ area: Area }> = ({ area }) => {
   const [, setVersion] = useState(0);
   const panelManager = usePanelManager();
   const panel = useRef(panelManager.getPanel(area));
+
+  const isHorizontal = ['right', 'docked-right'].includes(area);
+
   const render = () =>
     panel.current.elements.map((i) => (
       <div className="float-panel-wrap" key={i.key} style={{ ...floatPanelWrap, ...i.style }}>
@@ -33,8 +35,9 @@ export const FloatPanel: React.FC<{ area: Area }> = ({ area }) => {
   }, [panel]);
   const onResize = useCallback((newSize: number) => panel.current!.updateSize(newSize), []);
   const size = panel.current!.currentSize;
-  const sizeStyle =
-    area === 'right' ? { width: size, height: '100%' } : { height: size, width: '100%' };
+  const sizeStyle = isHorizontal
+    ? { width: size, height: '100%' }
+    : { height: size, width: '100%' };
 
   return (
     <div
@@ -45,9 +48,11 @@ export const FloatPanel: React.FC<{ area: Area }> = ({ area }) => {
         ...sizeStyle,
       }}
     >
-      {panelManager.config.autoResize && panel.current.elements.length > 0 && (
-        <ResizeBar size={size} isVertical={area === 'right'} onResize={onResize} />
-      )}
+      {panelManager.config.resizeBarRender({
+        size,
+        direction: isHorizontal ? 'vertical' : 'horizontal',
+        onResize,
+      })}
       {node.current}
     </div>
   );

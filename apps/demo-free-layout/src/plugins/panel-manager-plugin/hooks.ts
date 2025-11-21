@@ -25,7 +25,7 @@ export const useTestRunFormPanel = () => {
   const panelManager = usePanelManager();
 
   const open = () => {
-    panelManager.open(PanelType.TestRunFormPanel, 'right');
+    panelManager.open(PanelType.TestRunFormPanel, 'docked-right');
   };
   const close = () => panelManager.close(PanelType.TestRunFormPanel);
 

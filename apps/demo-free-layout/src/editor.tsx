@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { DockedPanelLayer } from '@flowgram.ai/panel-manager-plugin';
 import { EditorRenderer, FreeLayoutEditorProvider } from '@flowgram.ai/free-layout-editor';
 
 import '@flowgram.ai/free-layout-editor/index.css';
@@ -17,7 +18,9 @@ export const Editor = () => {
     <div className="doc-free-feature-overview">
       <FreeLayoutEditorProvider {...editorProps}>
         <div className="demo-container">
-          <EditorRenderer className="demo-editor" />
+          <DockedPanelLayer>
+            <EditorRenderer className="demo-editor" />
+          </DockedPanelLayer>
         </div>
       </FreeLayoutEditorProvider>
     </div>

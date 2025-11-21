@@ -6,15 +6,18 @@
 import React, { useRef, useState } from 'react';
 
 interface Props {
-  onResize: (w: number) => void;
   size: number;
-  isVertical?: boolean;
+  direction?: 'vertical' | 'horizontal';
+  onResize: (w: number) => void;
 }
 
-export const ResizeBar: React.FC<Props> = ({ onResize, size, isVertical }) => {
+export const ResizeBar: React.FC<Props> = ({ onResize, size, direction }) => {
   const currentPoint = useRef<null | number>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const isVertical = direction === 'vertical';
+
   return (
     <div
       onMouseDown={(e) => {

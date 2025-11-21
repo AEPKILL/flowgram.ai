@@ -7,6 +7,7 @@ import { Point } from '@flowgram.ai/utils';
 import { EntityData } from '@flowgram.ai/core';
 
 import {
+  FlowNodeBaseType,
   type FlowTransitionLabel,
   FlowTransitionLabelEnum,
   type FlowTransitionLine,
@@ -42,8 +43,10 @@ export const drawLineToBottom = (transition: FlowNodeTransitionData) => {
   const { transform } = transition;
 
   const currentOutput = transform.outputPoint;
+  const isParentRoot = transform.parent?.entity.flowNodeType === FlowNodeBaseType.ROOT;
   const parentOutput = transform.parent?.outputPoint;
   if (
+    !isParentRoot &&
     !transform.next &&
     parentOutput &&
     !new Point().copyFrom(currentOutput).equals(parentOutput) &&

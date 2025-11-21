@@ -3,12 +3,13 @@
  * SPDX-License-Identifier: MIT
  */
 
+import React, { useCallback } from 'react';
+
+import { Tooltip, Typography } from 'antd';
+
 import { TypeTag } from '../type-tag';
 
 import './index.css';
-import { Tooltip, Typography } from 'antd';
-
-import React, { useCallback } from 'react';
 
 const { Text } = Typography;
 

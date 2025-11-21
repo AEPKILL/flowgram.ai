@@ -19,4 +19,5 @@ export {
   type TestRunPipelinePlugin,
   TestRunPipelineEntity,
   type TestRunPipelineEntityCtx,
+  type TestRunConfig,
 } from './services';

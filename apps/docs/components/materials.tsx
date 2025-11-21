@@ -4,6 +4,7 @@
  */
 
 // @ts-expect-error
+// eslint-disable-next-line import/no-unresolved
 import { PackageManagerTabs, SourceCode } from '@theme';
 
 export function MaterialDisplay(props: any) {

@@ -18,6 +18,9 @@ module.exports = defineConfig({
   rules: {
     'no-console': 'off',
     'react/prop-types': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    '@next/next/no-img-element': 'off',
+    'jsx-a11y/alt-text': 'off'
   },
   plugins: ['json'],
   extends: ['next', 'next/core-web-vitals'],

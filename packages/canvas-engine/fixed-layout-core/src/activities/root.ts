@@ -18,6 +18,6 @@ export const RootRegistry: FlowNodeRegistry = {
     return transform.firstChild?.inputPoint || transform.bounds.topCenter;
   },
   getOutputPoint(transform) {
-    return transform.firstChild?.outputPoint || transform.bounds.bottomCenter;
+    return transform.lastChild?.outputPoint || transform.bounds.bottomCenter;
   },
 };

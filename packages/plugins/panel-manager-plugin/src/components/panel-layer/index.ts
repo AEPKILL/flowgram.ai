@@ -4,3 +4,4 @@
  */
 
 export { PanelLayer, type PanelLayerProps } from './panel-layer';
+export { DockedPanelLayer, type DockedPanelLayerProps } from './docked-panel-layer';
